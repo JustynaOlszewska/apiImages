@@ -26,6 +26,7 @@ const App = () => {
         <AlertState>
           <Switch location={background || location}>
             <Route exact path="/" component={HeaderSearch} />
+            <Route path="/apiImages" component={HeaderSearch} />
             <Route path="/main" component={Main} />
             <Route path="/photo/:id" component={ModalImageDetails} />
             <Route component={NotFound} />

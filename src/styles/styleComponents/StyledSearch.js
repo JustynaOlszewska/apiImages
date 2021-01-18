@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+import unsplash640 from "../../images/unsplash640.jpg"
+import unsplash1920 from "../../images/unsplash1920.jpg"
+
 export const StyledHeaderSearch = styled.header`
 height: ${props => props.primary ? "100vh" : "200px"};
 width: 100vw;
@@ -9,7 +12,7 @@ justify-content: center;
 align-items: center;
 background-size: cover;
 background-repeat: no-repeat;
- background-image: url('/images/unsplash640.jpg');
+ background-image: url(${unsplash640});
  @media(min-width: 768px) {
 width: 80vw;
 };
@@ -20,6 +23,6 @@ width: 80vw;
    height: ${props => props.primary ? "100vh" : "400px"};
 };
  @media(min-width: 1200px) {
-    background-image: url('/images/unsplash1920.jpg');
+    background-image: url(${unsplash1920});
  };
 `;
