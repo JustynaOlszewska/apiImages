@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy } from 'react';
+import {
+  Switch,
+  Route,
+  useLocation
+} from "react-router-dom";
 
-function App() {
+import FetchState from "./context/fetch/FetchState";
+import AlertState from "./context/alert/AlertState";
+
+const NotFound = lazy(() => import('./components/pages/NotFound'));
+const HeaderSearch = lazy(() => import('./components/pages/HeaderSearch'));
+const Main = lazy(() => import('./components/pages/Main'));
+const ModalImageDetails = lazy(() => import('./components/pages/ModalImageDetails'));
+const Modal = lazy(() => import('./components/pages/Modal'));
+
+
+const App = () => {
+
+  let location = useLocation();
+  let background = location.state && location.state.background;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <FetchState>
+        <AlertState>
+          <Switch location={background || location}>
+            <Route exact path="/" component={HeaderSearch} />
+            <Route path="/main" component={Main} />
+            <Route path="/photo/:id" component={ModalImageDetails} />
+            <Route component={NotFound} />
+
+          </Switch>
+          {background && <Route path="/photo/:id" children={<Modal />} />}
+        </AlertState>
+      </FetchState>
     </div>
   );
-}
+};
 
 export default App;
