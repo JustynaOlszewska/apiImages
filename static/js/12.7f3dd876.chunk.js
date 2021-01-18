@@ -1,0 +1,2 @@
+(this.webpackJsonpimagessearch=this.webpackJsonpimagessearch||[]).push([[12],{69:function(e,n,s){"use strict";s.r(n);var t=s(3),r=s(0),a=s(47),c=Object(r.lazy)((function(){return Promise.all([s.e(2),s.e(9)]).then(s.bind(null,76))}));n.default=function(){return Object(t.jsx)(a.a,{primary:!0,children:Object(t.jsx)(c,{})})}}}]);
+//# sourceMappingURL=12.7f3dd876.chunk.js.map
