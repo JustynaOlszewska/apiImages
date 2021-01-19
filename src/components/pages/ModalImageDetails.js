@@ -12,8 +12,8 @@ const ModalImageDetails = () => {
             <div>
                 <p>Author: {fetchContext?.photo?.user?.name}</p>
                 <StylesContainerData>
-                    {fetchContext?.photo?.cover_photo?.urls?.thumb ?
-                        <img src={fetchContext?.photo?.cover_photo?.urls?.thumb} loading="lazy" alt={fetchContext.photo.title} /> : <p>sorry</p>}
+                    {fetchContext?.photo?.cover_photo?.urls?.regular ?
+                        <img src={fetchContext?.photo?.cover_photo?.urls?.regular} loading="lazy" alt={fetchContext.photo.title} /> : <p>sorry</p>}
                 </StylesContainerData>
                 <p>Location: {fetchContext?.photo?.cover_photo?.user?.location ?
                     fetchContext?.photo?.cover_photo?.user?.location : <p>no photo</p>}</p>

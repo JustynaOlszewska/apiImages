@@ -25,8 +25,8 @@ const Modal = () => {
                 <div>
                     <p>Author: {fetchContext?.photo?.user?.name}</p>
                     <StylesContainerData>
-                        {fetchContext?.photo?.cover_photo?.urls?.thumb ?
-                            <img src={fetchContext?.photo?.cover_photo?.urls?.thumb} loading="lazy" alt={fetchContext.photo.title} /> : "no photo"}
+                        {fetchContext?.photo?.cover_photo?.urls?.small ?
+                            <img src={fetchContext?.photo?.cover_photo?.urls?.small} loading="lazy" alt={fetchContext.photo.title} /> : "no photo"}
                     </StylesContainerData>
                     <p>Location: {fetchContext?.photo?.cover_photo?.user?.location ?
                         fetchContext?.photo?.cover_photo?.user?.location : "no location"}</p>
