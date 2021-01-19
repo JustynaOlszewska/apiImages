@@ -12,7 +12,7 @@ const Main = () => {
                 <Search />
             </StyledHeaderSearch>
             <ImagesList />
-        </div>
+        </div >
     );
 };
 
