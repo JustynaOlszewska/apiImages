@@ -16,15 +16,16 @@ const ImageListElement = ({ photo }) => {
         fetchContext.getPhoto(photo.id)
 
     };
-
     return (
         <StylesSection>
             <NavLink to={{
                 pathname: `/photo/${photo.id}`,
                 state: { background: location }
-            }} onClick={getId}><StylesLazyLoadImage src={photo.cover_photo.urls.thumb} loading="lazy" alt={photo.title} /></NavLink>
+            }} onClick={getId}>
+                <StylesLazyLoadImage 
+            src={photo.cover_photo.urls.small} 
+            loading="lazy" alt={photo.title} /></NavLink>
         </StylesSection>
-
     );
 };
 
