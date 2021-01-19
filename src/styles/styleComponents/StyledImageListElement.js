@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-// import LazyImg from 'react-lazy-loading-image'
 
 export const StylesSection = styled.section`
 text-align: center;
