@@ -15,7 +15,7 @@ const Alert = lazy(() => import('../../components/organism/Alert'));
 
 const ImagesList = () => {
 
-    const [text, setText] = useState('')
+    const [text, setText] = useState('');
     const fetchContext = useContext(FetchContext);
     const alertContext = useContext(AlertContext);
 

@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import { StylesLazyLoadImage, StylesSection } from '../../styles/styleComponents/StyledImageListElement';
-
-import { NavLink, useLocation } from 'react-router-dom';
 
 import FetchContext from "../../context/fetch/fetchContext";
 

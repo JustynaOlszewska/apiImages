@@ -11,7 +11,6 @@ import AlertState from "./context/alert/AlertState";
 const NotFound = lazy(() => import('./components/pages/NotFound'));
 const HeaderSearch = lazy(() => import('./components/pages/HeaderSearch'));
 const Main = lazy(() => import('./components/pages/Main'));
-const ModalImageDetails = lazy(() => import('./components/pages/ModalImageDetails'));
 const Modal = lazy(() => import('./components/pages/Modal'));
 
 
@@ -28,7 +27,6 @@ const App = () => {
             <Route exact path="/" component={HeaderSearch} />
             <Route path="/apiImages" component={HeaderSearch} />
             <Route path="/main" component={Main} />
-            <Route path="/photo/:id" component={ModalImageDetails} />
             <Route component={NotFound} />
 
           </Switch>
