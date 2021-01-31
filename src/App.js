@@ -28,7 +28,6 @@ const App = () => {
             <Route path="/apiImages" component={HeaderSearch} />
             <Route path="/main" component={Main} />
             <Route component={NotFound} />
-
           </Switch>
           {background && <Route path="/photo/:id" children={<Modal />} />}
         </AlertState>
