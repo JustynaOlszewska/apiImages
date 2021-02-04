@@ -1,9 +1,9 @@
-import React, {lazy, useEffect, useContext, useState } from 'react';
+import React, { lazy, useEffect, useContext, useState } from 'react';
 import {
     NavLink
 } from "react-router-dom";
 
-import {useStyles,StyledForm } from '../../styles/styleComponents/StyledInput';
+import { useStyles, StyledForm } from '../../styles/styleComponents/StyledInput';
 
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -13,7 +13,7 @@ import AlertContext from "../../context/alert/alertContext";
 
 const Alert = lazy(() => import('../../components/organism/Alert'));
 
-const ImagesList = () => {
+const Search = () => {
 
     const [text, setText] = useState('');
     const fetchContext = useContext(FetchContext);
@@ -47,8 +47,8 @@ const ImagesList = () => {
             <StyledForm>
                 <Autocomplete
                     id="search-photo"
-                    options={fetchContext.photos}
-                    getOptionLabel={(option) => option.title}
+                    options={[...new Set(fetchContext.photos.map((element) => element.title))]}
+                    getOptionLabel={(option) => option}
                     ListboxProps={{
                         style: {
                             position: "absolute",
@@ -71,4 +71,4 @@ const ImagesList = () => {
     );
 };
 
-export default ImagesList;
+export default Search;

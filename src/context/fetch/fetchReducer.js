@@ -16,6 +16,7 @@ const GithubReducer = (state, action) => {
             }
 
         case SEARCH_PHOTOS:
+            console.log('action.payload', action.payload)
             return {
                 ...state,
                 photos: action.payload,

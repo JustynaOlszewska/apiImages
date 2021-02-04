@@ -17,8 +17,9 @@ const GithubState = props => {
     const searchPhotos = async (text) => {
 
         setLoading(true);
-
+        // const reg = new RegExp(text);
         const res = await axios.get(`https://api.unsplash.com/search/collections?query=${text}&client_id=yhDIca96_nzfQlbE1tg2G5boMXKf7dYH6YXIV_EXHls`)
+        // console.log('reg', reg);
 
         dispatch({
             type: SEARCH_PHOTOS,
