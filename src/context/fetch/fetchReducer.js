@@ -1,6 +1,6 @@
 import { SEARCH_PHOTOS, GET_PHOTO, CLEAR_PHOTO, SET_LOADING, SET_LOADINGIMAGES } from "../types";
 
-const GithubReducer = (state, action) => {
+const FetchReducer = (state, action) => {
     switch (action.type) {
         case CLEAR_PHOTO:
             return {
@@ -16,7 +16,7 @@ const GithubReducer = (state, action) => {
             }
 
         case SEARCH_PHOTOS:
-            console.log('action.payload', action.payload)
+          
             return {
                 ...state,
                 photos: action.payload,
@@ -40,4 +40,4 @@ const GithubReducer = (state, action) => {
     };
 };
 
-export default GithubReducer;
+export default FetchReducer;

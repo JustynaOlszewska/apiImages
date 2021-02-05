@@ -4,7 +4,7 @@ import FetchReducer from "./fetchReducer";
 import axios from "axios";
 import { SEARCH_PHOTOS, GET_PHOTO, CLEAR_PHOTO, SET_LOADING, SET_LOADINGIMAGES } from "../types"
 
-const GithubState = props => {
+const FetchState = props => {
     const initialState = {
         photos: [],
         loading: false,
@@ -17,9 +17,8 @@ const GithubState = props => {
     const searchPhotos = async (text) => {
 
         setLoading(true);
-        // const reg = new RegExp(text);
+
         const res = await axios.get(`https://api.unsplash.com/search/collections?query=${text}&client_id=yhDIca96_nzfQlbE1tg2G5boMXKf7dYH6YXIV_EXHls`)
-        // console.log('reg', reg);
 
         dispatch({
             type: SEARCH_PHOTOS,
@@ -53,4 +52,4 @@ const GithubState = props => {
     return <FetchContext.Provider value={{ photo: state.photo, photos: state.photos, loadingImages: state.loadingImages, loading: state.loading, searchPhotos, getPhoto, clearPhoto, setLoadingImages }}> {props.children}</FetchContext.Provider>
 };
 
-export default GithubState;
+export default FetchState;

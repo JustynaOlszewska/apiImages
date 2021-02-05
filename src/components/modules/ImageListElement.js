@@ -21,9 +21,10 @@ const ImageListElement = ({ photo }) => {
                 pathname: `/photo/${photo.id}`,
                 state: { background: location }
             }} onClick={getId}>
-                <StylesLazyLoadImage 
-            src={photo.cover_photo.urls.small} 
-            loading="lazy" alt={photo.title} /></NavLink>
+                <StylesLazyLoadImage
+                    src={photo?.cover_photo?.urls?.small}
+                    loading="lazy" alt={photo.title} /></NavLink>
+            {!photo?.cover_photo?.urls?.small && <p>ups, where is this photo?</p>}
         </StylesSection>
     );
 };

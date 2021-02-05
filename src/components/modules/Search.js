@@ -33,7 +33,7 @@ const Search = () => {
         e.preventDefault();
         if (text === "") alertContext.setAlert('please enter something', 'light');
         fetchContext.setLoadingImages(true);
-        setText("")
+        setText("");
     };
 
     const handleChange = e => {
@@ -47,8 +47,10 @@ const Search = () => {
             <StyledForm>
                 <Autocomplete
                     id="search-photo"
-                    options={[...new Set(fetchContext.photos.map((element) => element.title))]}
-                    getOptionLabel={(option) => option}
+                    options={[...new Set(fetchContext.photos.map(element => element.title.toUpperCase()))]}
+                    getOptionSelected={(option) => option}
+                    value={text}
+                    onInputChange={(event, value) => setText(value)}
                     ListboxProps={{
                         style: {
                             position: "absolute",
@@ -63,7 +65,8 @@ const Search = () => {
                         },
                     }}
                     style={{ width: '200px' }}
-                    renderInput={(params) => <TextField value={text} onChange={handleChange} className={classes.input} id="filled-basic" {...params} label="Search" variant="filled" />}
+                    renderInput={(params) => <TextField
+                        onChange={handleChange} className={classes.input} id="filled-basic" {...params} label="Search" variant="filled" />}
                 />
                 <button type="submit" onClick={handleClick}><NavLink to='/main'>Show me</NavLink></button>
             </StyledForm>
