@@ -1,2 +1,0 @@
-(this.webpackJsonpimagessearch=this.webpackJsonpimagessearch||[]).push([[14],{146:function(e,s,c){"use strict";c.r(s);var n=c(3);c(0);s.default=function(){return Object(n.jsx)("div",{children:Object(n.jsx)("h1",{children:"not found"})})}}}]);
-//# sourceMappingURL=14.85b3ccdb.chunk.js.map
