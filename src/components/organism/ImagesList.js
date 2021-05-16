@@ -1,22 +1,20 @@
 import React, { lazy, useContext } from 'react';
-import Spinner from "../modules/spinner/Spinner";
+import Spinner from "../molecules/spinner/Spinner";
 import FetchContext from "../../context/fetch/fetchContext";
-
 import { StylesImagesList } from '../../styles/styleComponents/StyledImagesList';
-
-const ImageListElement = lazy(() => import('../modules/ImageListElement'));
+const ImageListElement = lazy(() => import('../molecules/ImageListElement'));
 
 const ImagesList = () => {
+
     const fetchContext = useContext(FetchContext);
+    const { photos, loading } = fetchContext || {};
 
     return (
-        fetchContext.loadingImages ?
-            <StylesImagesList>{fetchContext.loading ? <div><Spinner /></div> : fetchContext.photos.map(element => {
-                return (
-                    <ImageListElement key={element.id} photo={element} />
-                )
-            })}</StylesImagesList>
-            : <h1>Choose some option, please</h1>
+        <StylesImagesList>{loading ? <div><Spinner /></div> : photos.map(element => {
+            return (
+                <ImageListElement key={element.id} photo={element} />
+            )
+        })}</StylesImagesList>
     );
 };
 

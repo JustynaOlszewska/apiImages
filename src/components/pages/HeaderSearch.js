@@ -1,15 +1,22 @@
-import React, { lazy } from 'react';
-
+import React, { lazy, useEffect, useContext } from 'react';
+import FetchContext from "../../context/fetch/fetchContext";
 import { StyledHeaderSearch } from '../../styles/styleComponents/StyledSearch';
-
-const Search = lazy(() => import('../modules/Search'));
+const Search = lazy(() => import('../molecules/Search'));
 
 const HeaderSearch = () => {
-    
+    const fetchContext = useContext(FetchContext);
+
+    const { getRandomPhoto, randomPhoto } = fetchContext || {};
+
+    useEffect(() => {
+        getRandomPhoto()
+        //eslint-disable-next-line
+    }, []);
+
     return (
-            <StyledHeaderSearch primary>
-                <Search />
-            </StyledHeaderSearch >
+        <StyledHeaderSearch back={randomPhoto && randomPhoto} primary>
+            <Search />
+        </StyledHeaderSearch >
     );
 };
 

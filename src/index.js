@@ -1,8 +1,9 @@
 import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from "react-router-dom"; import GlobalStyle from './styles/GlobalStyle';
-
-import Spinner from './components/modules/spinner/Spinner';
+import { BrowserRouter as Router } from "react-router-dom";
+import { SnackbarProvider } from 'notistack';
+import GlobalStyle from './styles/GlobalStyle';
+import Spinner from './components/molecules/spinner/Spinner';
 const App = lazy(() => import('./App'));
 
 ReactDOM.render(
@@ -11,7 +12,9 @@ ReactDOM.render(
     <GlobalStyle />
     <Router>
       <Suspense fallback={<Spinner />}>
-        <App/>
+        <SnackbarProvider maxSnack={3}>
+          <App />
+        </SnackbarProvider>
       </Suspense>
     </Router>
   </React.StrictMode>,

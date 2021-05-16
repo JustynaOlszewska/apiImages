@@ -1,22 +1,10 @@
-import { makeStyles } from '@material-ui/core/styles';
 import styled from "styled-components";
 
-export const useStyles = makeStyles({
-    input: {
-        background: 'linear-gradient(45deg, rgba(255, 142, 83,0.5) 30%, rgba(0,0,0,0.5) 90%)',
-    },
-
-});
-
-export const StyledForm = styled.div`
-display: flex;
-width: 70%;
-justify-content: center;
-& > button {
-background-color: rgba(255, 142, 83,0.5);
-& *{
-color: #454441;
-text-decoration: none;
-};
-};
+export const StyledSection = styled.section`
+  width: 80%;
+  color: white; 
+  text-shadow: 2px 2px black;
+  @media (min-width: 1279px), (min-height: 1000px) {
+    font-size: 2rem; 
+  }
 `;
