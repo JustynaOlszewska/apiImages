@@ -7,6 +7,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+color: white;
 background-size: cover;
 background-repeat: no-repeat;
 background-position: center;

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from "react-router-dom";
 import { SnackbarProvider } from 'notistack';
 import GlobalStyle from './styles/GlobalStyle';
-import Spinner from './components/molecules/spinner/Spinner';
+import Spinner from './components/atoms/spinner/Spinner';
 const App = lazy(() => import('./App'));
 
 ReactDOM.render(

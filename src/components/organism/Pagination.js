@@ -3,40 +3,7 @@ import { NavLink } from "react-router-dom";
 import PaginateContext from '../../context/paginate/paginateContext';
 import ValidationContext from '../../context/validationForm/validationContext';
 import FetchContext from '../../context/fetch/fetchContext';
-import styled from 'styled-components';
-
-const StyleH4 = styled.h4`
-display: flex;
-justify-content: center;
-color: white;
-&> p {
-    margin: 0 5px;
-}
-`;
-
-const StyleNav = styled.nav`
-display: flex;
-justify-content: space-around;
-align-items: center;
-height: 50px;
-
-& > i.none {
-display: none;
-};
-& > i.grey {
-opacity: 0;
-};
-& > ul {
-width:80%;
-padding: 0;
-display: flex;
-justify-content: space-between;
-text-decoration: none;
-&> li {
-    list-style-type: none;
-};
-};
-`;
+import { StyleH4, StyleNav, StyleUl, StyleLi, StyleI } from "../../styles/styleComponents/StyledPagination";
 
 const Pagination = () => {
 
@@ -47,11 +14,11 @@ const Pagination = () => {
     const validationContext = useContext(ValidationContext);
     const { paginate } = paginateContext || {};
     const { searchPhotos, numbersPagination, totalNumberPhotos } = fetchContext || {};
-    const { value } = validationContext || {};
+    const { valueInput } = validationContext || {};
 
     const handleClickNumberPagination = number => {
         paginate(number);
-        searchPhotos(value, number);
+        searchPhotos(valueInput, number);
     };
 
     const handleClickArrow = event => {
@@ -67,19 +34,23 @@ const Pagination = () => {
         <>
             <StyleH4>A list of all pages: <p>{Math.ceil(totalNumberPhotos / 50)}</p></StyleH4>
             <StyleNav>
-                <i
+                <StyleI
+                    none={!numbersPagination.length ? "none" : undefined}
+                    grey={indexFirstNumberPagination === 0}
                     type='-8'
                     onClick={handleClickArrow}
-                    className={`${!numbersPagination.length && 'none'} ${indexFirstNumberPagination === 0 && 'grey'} fas fa-chevron-left`}>
-                </i>
-                <ul>
-                    {numbersPagination.slice(indexFirstNumberPagination, indexFirstNumberPagination + 8).map(number => <li key={number + 1}><NavLink to="/main" onClick={() => handleClickNumberPagination(number + 1)}>{number + 1}</NavLink></li>)}
-                </ul>
-                <i
+                    className="fas fa-chevron-left">
+                </StyleI>
+                <StyleUl>
+                    {numbersPagination.slice(indexFirstNumberPagination, indexFirstNumberPagination + 8).map(number => <StyleLi key={number + 1}><NavLink to="/main" onClick={() => handleClickNumberPagination(number + 1)}>{number + 1}</NavLink></StyleLi>)}
+                </StyleUl>
+                <StyleI
                     type='8'
                     onClick={handleClickArrow}
-                    className={`${!numbersPagination.length && 'none'} ${indexFirstNumberPagination === Math.ceil(totalNumberPhotos / 50) - 8 && 'grey'}  fas fa-chevron-right`}>
-                </i>
+                    none={!numbersPagination.length ? "none" : undefined}
+                    grey={indexFirstNumberPagination === Math.ceil(totalNumberPhotos / 50) - 8}
+                    className="fas fa-chevron-right">
+                </StyleI>
             </StyleNav>
         </>
     );

@@ -4,7 +4,7 @@ import { StylesLazyLoadImage, StylesSection } from '../../styles/styleComponents
 import FetchContext from "../../context/fetch/fetchContext";
 
 const ImageListElement = ({ photo }) => {
-    const { id, cover_photo: { urls: { small } }, title } = photo || {};
+    const { id, cover_photo: { urls: { small } = {} } = {}, title } = photo || {};
     const fetchContext = useContext(FetchContext);
     const { getPhoto } = fetchContext || {};
     let location = useLocation();

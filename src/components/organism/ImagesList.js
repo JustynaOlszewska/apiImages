@@ -1,5 +1,5 @@
 import React, { lazy, useContext } from 'react';
-import Spinner from "../molecules/spinner/Spinner";
+import Spinner from "../atoms/spinner/Spinner";
 import FetchContext from "../../context/fetch/fetchContext";
 import { StylesImagesList } from '../../styles/styleComponents/StyledImagesList';
 const ImageListElement = lazy(() => import('../molecules/ImageListElement'));

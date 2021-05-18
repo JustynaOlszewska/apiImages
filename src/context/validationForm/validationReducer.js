@@ -5,7 +5,8 @@ const ValidationReducer = (state, action) => {
         case SET_TEXT:
             return {
                 ...state,
-                value: action.payload
+                value: action.payload,
+                valueInput: state.value
             }
         default:
             return state

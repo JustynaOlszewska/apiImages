@@ -15,7 +15,7 @@ const Main = () => {
     return (
         <div>
             <StyledHeaderSearch mainPage>
-                <Form theme={themeForm} />
+                <Form theme={themeForm} />            
             </StyledHeaderSearch>
             {loadingImages ?
                 <>

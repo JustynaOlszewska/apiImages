@@ -36,6 +36,7 @@ const FetchState = props => {
     };
 
     const searchPhotos = async (text, pageNumber = 1, perPageNumber = 50) => {
+        // if (text === "") return;
         try {
             setLoading(true);
             const res = await axios.get(`https://api.unsplash.com/search/collections?query=${text}&page=${pageNumber}&per_page=${perPageNumber}&client_id=yhDIca96_nzfQlbE1tg2G5boMXKf7dYH6YXIV_EXHls`)

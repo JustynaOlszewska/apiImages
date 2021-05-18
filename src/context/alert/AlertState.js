@@ -16,7 +16,7 @@ const AlertState = props => {
 
         setTimeout(() => {
             return dispatch({ type: REMOVE_ALERT })
-        }, 10000);
+        }, 5000);
     };
 
     return <AlertContext.Provider value={{ alert: state, setAlert }}>{props.children}</AlertContext.Provider>

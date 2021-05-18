@@ -2,12 +2,11 @@ import React, { useContext } from 'react';
 import AlertContext from "../../context/alert/alertContext";
 import { StylesAlert } from '../../styles/styleComponents/StyledAlert';
 
-const Alert = () => {
+const Alert = ({ animation }) => {
     const alertContext = useContext(AlertContext);
-
     return (
         alertContext?.alert !== null && (
-            <StylesAlert>
+            <StylesAlert animation={animation}>
                 {alertContext?.alert?.alert?.msg}
             </StylesAlert>
         )
