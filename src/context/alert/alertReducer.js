@@ -1,13 +1,13 @@
-import { REMOVE_ALERT, SET_ALERT } from "../types";
+import { TypeTask } from "../types";
 
 const alertReducer = (state, action) => {
 
     switch (action.type) {
-        case SET_ALERT:
+        case TypeTask.SET_ALERT:
             return {
                 alert: action.payload
             }
-        case REMOVE_ALERT:
+        case TypeTask.REMOVE_ALERT:
             return null;
 
         default:

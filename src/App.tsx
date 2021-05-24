@@ -8,14 +8,15 @@ import FetchState from "./context/fetch/FetchState";
 import AlertState from "./context/alert/AlertState";
 import ValidationState from "./context/validationForm/ValidationState";
 import PaginateState from "./context/paginate/PaginateState";
-const NotFound = lazy(() => import('./components/pages/NotFound'));
-const HeaderSearch = lazy(() => import('./components/pages/HeaderSearch'));
-const Main = lazy(() => import('./components/pages/Main'));
-const Modal = lazy(() => import('./components/pages/Modal'));
+import { Location } from "./typesAppTS";
+const NotFound = lazy(() => import('./components/pages/notFound/NotFound'));
+const HeaderSearch = lazy(() => import('./components/pages/headerSearch/HeaderSearch'));
+const Main = lazy(() => import('./components/pages/Main/Main'));
+const Modal = lazy(() => import('./components/pages/modal/Modal'));
 
-const App = () => {
-  let location = useLocation();
-  let background = location.state && location.state.background;
+const App: React.FC = () => {
+  const location: Location = useLocation();
+  const background = location.state && location.state.background;
 
   return (
     <div>

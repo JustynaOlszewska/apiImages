@@ -1,4 +1,9 @@
 import styled from 'styled-components';
+interface IconProps {
+    none: string | undefined;
+    grey: boolean;
+    type?: string;
+};
 
 export const StyleH4 = styled.h4`
 display: flex;
@@ -29,7 +34,7 @@ export const StyleLi = styled.li`
     list-style-type: none;
 `;
 
-export const StyleI = styled.i`
-display: ${props => props.none === "none" && "none"};
-opacity: ${props => props.grey && 0};
+export const StyleI = styled.i<IconProps>`
+display: ${({ none }) => none === "none" && "none"};
+opacity: ${({ grey }) => grey && 0};
 `;

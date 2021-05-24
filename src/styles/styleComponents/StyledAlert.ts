@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
-
-export const StylesAlert = styled.div`
+interface AnimationProps {
+  readonly animation: boolean;
+}
+export const StylesAlert = styled.div<AnimationProps>`
   height: 20px;
   position: absolute;
   z-index: 3;
@@ -15,7 +17,7 @@ export const StylesAlert = styled.div`
   30%{ transform: translateX(50%); opacity: 1}
   100%{ transform: translateX(100%); opacity: 0}
 }
-  ${props => props.animation === true && css`
+  ${({animation}) => animation === true && css`
        animation: mymove 5s 1;
   `}  
 `;

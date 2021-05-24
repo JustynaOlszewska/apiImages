@@ -1,8 +1,7 @@
-import React, { lazy } from 'react';
-import { StyledSection } from '../../styles/styleComponents/StyledInput';
-import { themeSearch } from "../../styles/themes/buttons";
-// const Alert = lazy(() => import('../atoms/Alert'));
-const Form = lazy(() => import('./Form'));
+import React, { lazy } from "react";
+import { StyledSection } from "../../../styles/styleComponents/StyledInput";
+import { themeSearch } from "../../../styles/themes/buttons";
+const Form = lazy(() => import("../form/Form"));
 
 const Search = () => {
  
@@ -13,7 +12,6 @@ const Search = () => {
             <p>Powered by creators everywhere.</p>
             <Form theme={themeSearch} />
             <p>Trending: lorem, ipsum, dolor,</p>
-            {/* <Alert /> */}
         </StyledSection>
     );
 };

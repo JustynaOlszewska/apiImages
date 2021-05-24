@@ -1,8 +1,8 @@
-import { SET_TEXT } from "../types";
+import { TypeTask } from "../types";
 
 const ValidationReducer = (state, action) => {
     switch (action.type) {
-        case SET_TEXT:
+        case TypeTask.SET_TEXT:
             return {
                 ...state,
                 value: action.payload,

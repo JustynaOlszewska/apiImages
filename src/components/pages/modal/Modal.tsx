@@ -1,17 +1,17 @@
 import React, { lazy, useContext } from 'react'
-import { useHistory, } from 'react-router-dom';
-import FetchContext from "../../context/fetch/fetchContext";
-import { StylesContainerData, StylesModal } from '../../styles/styleComponents/StyledModal';
-const Spinner = lazy(() => import('../atoms/spinner/Spinner'));
+import { useHistory } from 'react-router-dom';
+import FetchContext from "../../../context/fetch/fetchContext";
+import { StylesContainerData, StylesModal } from '../../../styles/styleComponents/StyledModal'; 
+import { ModalDetails, History} from "./Moda.model";
+const Spinner = lazy(() => import('../../atoms/spinner/Spinner'));
 
 const Modal = () => {
-
     const fetchContext = useContext(FetchContext);
-    const { clearPhoto, loading, photo: { user: { name } = {}, cover_photo: { urls: { small } = {}, user: { location } = {} } = {}, title } = {} } = fetchContext || {};
+    const { clearPhoto, loading, photo: { user: { name="no name" } = {}, cover_photo: { urls: { small="no photo" } = {}, user: { location="no location" } = {}, title="no title" }={}}} : ModalDetails = fetchContext || {};
 
-    const history = useHistory();
-
-    const back = e => {
+    const history: History = useHistory();
+    
+    const back = (e:React.SyntheticEvent) => {
         e.stopPropagation();
         history.goBack();
         clearPhoto();

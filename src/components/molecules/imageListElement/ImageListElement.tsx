@@ -1,15 +1,16 @@
 import React, { useContext } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { StylesLazyLoadImage, StylesSection } from '../../styles/styleComponents/StyledImageListElement';
-import FetchContext from "../../context/fetch/fetchContext";
+import { StylesLazyLoadImage, StylesSection } from '../../../styles/styleComponents/StyledImageListElement';
+import FetchContext from "../../../context/fetch/fetchContext";
+import {PhotoProps, Getphoto } from "./ImageListElement.model";
 
-const ImageListElement = ({ photo }) => {
-    const { id, cover_photo: { urls: { small } = {} } = {}, title } = photo || {};
+const ImageListElement = ({ photo }: PhotoProps) => {
+    const { id, cover_photo: { urls: { small = ""} = {} } = {}, title } = photo || {};
     const fetchContext = useContext(FetchContext);
-    const { getPhoto } = fetchContext || {};
-    let location = useLocation();
+    const { getPhoto }: Getphoto = fetchContext || {};
+    const location = useLocation();
 
-    const getId = () => {
+    const getId = (): void => {
         getPhoto(id);
     };
 

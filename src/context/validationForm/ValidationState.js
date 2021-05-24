@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import ValidationReducer from "./validationReducer";
 import ValidationContext from "./validationContext";
-import { SET_TEXT } from "../types";
+import { TypeTask } from "../types";
 
 const ValidationState = props => {
     const initialState = {
@@ -13,7 +13,7 @@ const ValidationState = props => {
 
     const setText = value => {
             dispatch({
-                type: SET_TEXT,
+                type: TypeTask.SET_TEXT,
                 payload: value
             })
     };

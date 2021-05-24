@@ -3,6 +3,14 @@ import {
   NavLink
 } from "react-router-dom";
 
+interface ThemeProps {
+  theme: Theme;
+};
+
+interface Theme {
+  bg: string;
+    col: string;
+}
 export const StyledForm = styled.div`
   display: flex;
   width: 100%;
@@ -44,15 +52,15 @@ export const StyledIcon = styled.i`
   text-shadow: 0px 0px black;
 `;
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.button<ThemeProps>`
   position: absolute;
   bottom: 0; 
   left: 50%;
   transform: translateX(-50%);
-  background-color: ${props => props.theme.bg};
+  background-color: ${({ theme }) => theme.bg};
 `;
 
-export const StyledNavLink = styled(NavLink)`
+export const StyledNavLink = styled(NavLink)<ThemeProps>`
   text-decoration: none;
-  color: ${props => props.theme.col};
+  color: ${({ theme }) => theme.col};
 `;

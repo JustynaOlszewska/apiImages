@@ -7,7 +7,6 @@ import Spinner from './components/atoms/spinner/Spinner';
 const App = lazy(() => import('./App'));
 
 ReactDOM.render(
-
   <React.StrictMode>
     <GlobalStyle />
     <Router>
